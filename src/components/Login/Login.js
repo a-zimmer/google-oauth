@@ -15,6 +15,7 @@ const Login = () => {
             clientId="211058580479-ng02d6bfs70l1ivihr2070448nr3n9sl.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={response => {
+              console.log(response);
               userDispatch({
                 type: 'setLoggedIn',
                 payload: {
