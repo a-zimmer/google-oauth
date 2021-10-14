@@ -1,24 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {UserContext} from '../../contexts/UserContext';
 
-export default function Comment(props) {
-  const {
-    userName,
-    email,
-    expires_in,
-    profilePic
-  } = props;
-
+export default function Comment() {
+  const {state: user} = useContext(UserContext);
+  console.table(user);
   return (
       <div className="Comment">
         <div className="UserInfo">
           <div className="UserInfo-name">
-            <h3 className="welcome">Bem vindo, {userName}!</h3>
-            <h4 className="welcome">E-mail: {email}.</h4>
-            <h4 className="welcome">Sessão expira em {parseInt(expires_in / 60)} minutos.</h4>
+            <h3 className="welcome">Bem vindo, {user.userName}!</h3>
+            <h4 className="welcome">E-mail: {user.email}.</h4>
+            <h4 className="welcome">Sessão expira em {parseInt(user.expires_in / 60)} minutos.</h4>
           </div>
           <img className="Avatar"
-            src={profilePic}
-            alt={userName}
+            src={user.profilePic}
+            alt={user.userName}
           />
         </div>
       </div>
